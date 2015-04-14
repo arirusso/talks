@@ -27,3 +27,9 @@ require "midi" # https://github.com/arirusso/micromidi
 @midi.play "G#", 0.6
 
 @midi.cc 1, 0
+
+# Add control change (mod wheel) scaled to the note value
+@midi.receive(:note_on) do |message|
+  @midi.cc 1, message.note
+  @midi.output(message)
+end
