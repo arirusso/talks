@@ -9,8 +9,8 @@ require "unimidi" # https://github.com/arirusso/unimidi
 
 @message = MIDIMessage::NoteOn.new(0x0, 64, 100)
 
-pp @message
+@output.puts(*@message.to_a)
 
-@output.puts(@message.to_a)
+@off = @message.to_note_off
 
-@output.puts(@message.to_note_off.to_a)
+@output.puts(*@off.to_a)
