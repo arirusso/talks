@@ -12,11 +12,15 @@ require "unimidi" # https://github.com/arirusso/unimidi
 duration = 0.22
 counter = 0
 
+# Create a tempo, synched to the input
 @tempo = Topaz::Tempo.new(@input, :midi_transport => true) do
+  # Select the current note
   note = @notes[counter] || @notes[counter = 0]
   p "Playing note #{note} (index #{counter})"
+  # Output the note
   @output.puts(0x90, note, 100)
   sleep(duration)
+  # Note off
   @output.puts(0x80, note, 100)
   counter += 1
 end
