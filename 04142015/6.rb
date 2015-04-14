@@ -13,7 +13,7 @@ require "midi-eye" # https://github.com/arirusso/midi-eye
 new_notes = {}
 
 # Bind an event to the listener
-@transpose.listen_for(:class => [MIDIMessage::NoteOn, MIDIMessage::NoteOff]) do |event|
+@transpose.on_message(:class => [MIDIMessage::NoteOn, MIDIMessage::NoteOff]) do |event|
 
   # Raise the note value by an octave
   new_note = new_notes[event[:message].note] ||= event[:message].note + rand(5)
