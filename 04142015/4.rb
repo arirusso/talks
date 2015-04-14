@@ -3,7 +3,14 @@
 
 require "pp"
 require "midi-message" # https://github.com/arirusso/midi-message
+require "unimidi" # https://github.com/arirusso/unimidi
 
-@message = MIDIMessage::NoteOn.new(0, 64, 100)
+@output = UniMIDI::Output.gets
+
+@message = MIDIMessage::NoteOn.new(0x0, 64, 100)
 
 pp @message
+
+@output.puts(@message.to_a)
+
+@output.puts(@message.to_note_off.to_a)
