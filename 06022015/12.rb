@@ -49,4 +49,4 @@ end
 @arpeggiators.each { |arpeggiator| arpeggiator << @chord }
 
 # Start the clock
-@clock.start #(:background => true)
+@clock.start(:background => true)
