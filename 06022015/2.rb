@@ -7,12 +7,8 @@ duration = 0.25
 
 @output = UniMIDI::Output.gets
 
-3.times do |i|
-
-  (i % 2 == 0 ? @notes : @notes.reverse).each do |note|
-    @output.puts(0x90, note, 100)
-    sleep(duration)
-    @output.puts(0x80, note, 100)
-  end
-
+@notes.each do |note|
+  @output.puts(0x90, note, 100)
+  sleep(duration)
+  @output.puts(0x80, note, 100)
 end
