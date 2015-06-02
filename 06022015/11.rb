@@ -14,7 +14,7 @@ options = {
   :interval => 7, # Argument to provide an interval for the arpeggiation algorithm
   :range => 4, # Argument for how many octaves to apply to arpeggiation algorithm for
   :rate => 8, # How to divide the beat
-  :tx_channel => 1 # What MIDI channel to publish to
+  :tx_channel => 0 # What MIDI channel to publish to
 }
 
 # Create a clock with tempo of 101 bpm
